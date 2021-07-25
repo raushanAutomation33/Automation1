@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * @author Raushan
+ * @author Raushan Pandey
  *
  */
 public class EmailPage {

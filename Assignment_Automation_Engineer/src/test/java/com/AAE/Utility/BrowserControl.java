@@ -8,6 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.GeckoDriverInfo;
+import org.testng.annotations.Parameters;
+
+import com.beust.jcommander.Parameter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -17,15 +20,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 public class BrowserControl {
 		WebDriver driver;
-	public WebDriver browserControl(String BrowserName) 
+		
+	public WebDriver browserControl(String browserName) 
 	{
-		if(BrowserName.equals("Chrome")) 
+		if(browserName.equals("Chrome")) 
 		{
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(); 
 		}
 		
-		else if (BrowserName.equals("Firefox")) {
+		else if (browserName.equals("Firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}

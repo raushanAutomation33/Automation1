@@ -6,13 +6,13 @@ package com.AAE.TestCases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.AAE.Config.PropertiesFile;
@@ -22,13 +22,11 @@ import com.AAE.Pages.Logout;
 import com.AAE.Pages.SignIn_EmailID;
 import com.AAE.Pages.SignIn_Password;
 import com.AAE.Utility.BrowserControl;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * @author Raushan
@@ -40,6 +38,7 @@ public class GmailActivities {
 	ExtentReports extent;
 	ExtentSparkReporter sparkReporter;
 	ExtentTest test;
+	
 	public GmailActivities() throws Exception 
 	{
 		
@@ -62,20 +61,21 @@ public class GmailActivities {
 		extent.flush();
 
 	}
-	
+	@Parameters("browserName")
 	@BeforeClass
-	public void setup() 
+	public void setup(String browserName) 
 	{
-	String Browser =	inputData.dataExtract("browser");
+	//String Browser =	inputData.dataExtract("browser");
 		
 		BrowserControl browser = new BrowserControl();
-		driver=browser.browserControl(Browser);
-		driver.manage().window().maximize(); 
+		//driver=browser.browserControl(Browser);
+		driver = browser.browserControl(browserName);
+		driver.manage().window().maximize();
 	}
 
-
+	@Parameters("URL")
 	@Test(priority=1) 
-	public void loginTest() throws Exception 
+	public void loginTest(String URL) throws Exception 
 	{
 		/**
 		 * 
@@ -83,7 +83,7 @@ public class GmailActivities {
 		 */
 
 		
-		String URL=inputData.dataExtract("URL");
+		//String URL=inputData.dataExtract("URL");
 		String EmailID =inputData.dataExtract("EmailID"); 
 		String Password =inputData.dataExtract("Password");
 

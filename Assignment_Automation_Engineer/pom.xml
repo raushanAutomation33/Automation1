@@ -42,7 +42,7 @@
         <configuration>
         <systemPropertyVariables>
         <browserName>${browserName}</browserName>
-        <URLToBeTested>${URL}</URLToBeTested>
+        <URLToBeTested>${URL} </URLToBeTested>
         </systemPropertyVariables>
         
           <suiteXmlFiles>
